@@ -15,32 +15,29 @@ const Header = () => {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container-custom py-4">
         <div className="flex justify-between items-center">
-          {/* Logo */}
+          {/* Logo as Home link */}
           <Link to="/" className="flex items-center">
             <div className="text-2xl md:text-3xl font-bold font-montserrat">
               <span className="text-mavBlue">Mavullamma</span> Cars
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Updated order */}
           <nav className="hidden lg:flex items-center space-x-6">
-            <Link to="/" className="font-medium hover:text-mavBlue transition-colors">
-              Home
-            </Link>
-            <Link to="/about" className="font-medium hover:text-mavBlue transition-colors">
-              About Us
-            </Link>
             <Link to="/buy" className="font-medium hover:text-mavBlue transition-colors">
               Buy Cars
             </Link>
             <Link to="/sell" className="font-medium hover:text-mavBlue transition-colors">
               Sell Your Car
             </Link>
+            <Link to="/financing" className="font-medium hover:text-mavBlue transition-colors">
+              Finance
+            </Link>
             <Link to="/services" className="font-medium hover:text-mavBlue transition-colors">
               Services
             </Link>
-            <Link to="/financing" className="font-medium hover:text-mavBlue transition-colors">
-              Financing
+            <Link to="/about" className="font-medium hover:text-mavBlue transition-colors">
+              About Us
             </Link>
             <Link to="/contact" className="font-medium hover:text-mavBlue transition-colors">
               Contact
@@ -68,24 +65,10 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile Navigation - Updated order */}
         {isMenuOpen && (
           <div className="lg:hidden pt-4 pb-4 animate-fade-in">
             <nav className="flex flex-col space-y-4">
-              <Link 
-                to="/" 
-                className="font-medium hover:text-mavBlue transition-colors px-2 py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              <Link 
-                to="/about" 
-                className="font-medium hover:text-mavBlue transition-colors px-2 py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                About Us
-              </Link>
               <Link 
                 to="/buy" 
                 className="font-medium hover:text-mavBlue transition-colors px-2 py-2"
@@ -101,6 +84,13 @@ const Header = () => {
                 Sell Your Car
               </Link>
               <Link 
+                to="/financing" 
+                className="font-medium hover:text-mavBlue transition-colors px-2 py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Finance
+              </Link>
+              <Link 
                 to="/services" 
                 className="font-medium hover:text-mavBlue transition-colors px-2 py-2"
                 onClick={() => setIsMenuOpen(false)}
@@ -108,11 +98,11 @@ const Header = () => {
                 Services
               </Link>
               <Link 
-                to="/financing" 
+                to="/about" 
                 className="font-medium hover:text-mavBlue transition-colors px-2 py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Financing
+                About Us
               </Link>
               <Link 
                 to="/contact" 

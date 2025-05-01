@@ -17,12 +17,12 @@ const HeroSection = () => {
         ></div>
       </div>
       
-      <div className="container-custom relative z-10 py-20 md:py-28 lg:py-36">
-        <div className="max-w-3xl">
+      <div className="container-custom relative z-10 py-20 md:py-28 lg:py-36 flex flex-col md:flex-row items-center justify-between">
+        <div className="max-w-xl mb-10 md:mb-0">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight animate-fade-in">
             Your Trusted Partner for Premium Used Cars Since 1998
           </h1>
-          <p className="text-lg sm:text-xl mb-8 text-gray-200 max-w-2xl animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <p className="text-lg sm:text-xl mb-8 text-gray-200 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             25+ years of expertise in car sales, services, and consultancy in Bhimavaram
           </p>
           <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
@@ -33,6 +33,15 @@ const HeroSection = () => {
               <Link to="/sell">Sell Your Car</Link>
             </Button>
           </div>
+        </div>
+        
+        {/* Added car image */}
+        <div className="w-full md:w-1/2 max-w-md animate-fade-in" style={{ animationDelay: '0.6s' }}>
+          <img 
+            src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNhcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" 
+            alt="Premium Car" 
+            className="w-full h-auto rounded-lg shadow-2xl"
+          />
         </div>
       </div>
     </section>
