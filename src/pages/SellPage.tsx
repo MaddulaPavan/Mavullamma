@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Clock, FileText, DollarSign, ArrowRight } from 'lucide-react';
 import { toast } from "sonner";
+import { Link } from 'react-router-dom';
 
 const SellPage = () => {
   const [formData, setFormData] = useState({

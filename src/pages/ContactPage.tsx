@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
+import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
   const [contactForm, setContactForm] = useState({
@@ -162,7 +163,7 @@ const ContactPage = () => {
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
-                  allowFullScreen="" 
+                  allowFullScreen={true} 
                   loading="lazy"
                   title="Mavullamma Cars Location"
                 ></iframe>
