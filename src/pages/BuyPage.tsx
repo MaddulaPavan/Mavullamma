@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Star, Check, ArrowRight, Car } from 'lucide-react';
@@ -191,7 +191,7 @@ const BuyPage = () => {
       {/* Our Guarantee */}
       <div className="section-padding bg-gray-50">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">The Mavullamma Guarantee</h2>
             <p className="text-lg text-center mb-8">Every car in our inventory comes with:</p>
             <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">

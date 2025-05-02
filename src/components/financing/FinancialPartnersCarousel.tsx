@@ -16,7 +16,6 @@ const FinancialPartnersCarousel = () => {
     const scrollContainer = scrollRef.current;
     if (!scrollContainer) return;
     
-    // Clone the items to create a seamless loop
     const scroll = () => {
       if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth / 2) {
         scrollContainer.scrollLeft = 0;
@@ -33,9 +32,9 @@ const FinancialPartnersCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full bg-gray-50 py-10 overflow-hidden">
-      <div className="container-custom mb-6">
-        <h2 className="text-2xl font-bold text-center mb-8">Our Financial Partners</h2>
+    <div className="w-full bg-gray-50 py-8 overflow-hidden">
+      <div className="container-custom mb-4">
+        <h2 className="text-2xl font-bold text-center mb-6">Our Financial Partners</h2>
       </div>
       
       <div 
@@ -47,16 +46,16 @@ const FinancialPartnersCarousel = () => {
         {[...financialPartners, ...financialPartners].map((partner, index) => (
           <div 
             key={index} 
-            className="inline-flex flex-col items-center justify-center mx-8"
+            className="inline-flex flex-col items-center justify-center mx-6"
           >
-            <div className="w-40 h-20 bg-white flex items-center justify-center p-4 rounded shadow">
+            <div className="w-36 h-16 bg-white flex items-center justify-center p-3 rounded shadow">
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
                 className="max-w-full max-h-full object-contain"
               />
             </div>
-            <span className="mt-2 font-medium">{partner.name}</span>
+            <span className="mt-2 font-medium text-sm">{partner.name}</span>
           </div>
         ))}
       </div>

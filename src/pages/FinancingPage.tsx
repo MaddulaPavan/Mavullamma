@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Check, Calculator } from 'lucide-react';
+import { Check, Calculator, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FinancialPartnersCarousel from '@/components/financing/FinancialPartnersCarousel';
 
@@ -81,6 +81,50 @@ const FinancingPage = () => {
                 </Button>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* 4-Step Financing Process */}
+      <div className="section-padding bg-white">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-10 text-center">Simple 4-Step Financing Process</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { 
+                step: 1, 
+                title: "Apply Online", 
+                description: "Fill out our simple online application form with your basic details and requirements" 
+              },
+              { 
+                step: 2, 
+                title: "Document Submission", 
+                description: "Submit required documents for verification and loan processing" 
+              },
+              { 
+                step: 3, 
+                title: "Loan Approval", 
+                description: "Get your loan approved within 24-48 hours with competitive interest rates" 
+              },
+              { 
+                step: 4, 
+                title: "Drive Your Car", 
+                description: "Complete the formalities and drive home your dream car" 
+              }
+            ].map((step, index) => (
+              <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center relative">
+                <div className="mx-auto mb-4 w-12 h-12 rounded-full bg-mavBlue text-white flex items-center justify-center font-bold text-lg">
+                  {step.step}
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{step.title}</h3>
+                <p className="text-gray-600">{step.description}</p>
+                {index < 3 && (
+                  <div className="hidden lg:block absolute top-1/2 -right-5 transform -translate-y-1/2">
+                    <ArrowRight className="w-6 h-6 text-mavBlue" />
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </div>
