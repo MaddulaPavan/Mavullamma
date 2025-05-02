@@ -21,9 +21,9 @@ const HeroSection = () => {
             </p>
             <div className="flex flex-wrap gap-4 animate-fade-in" style={{ animationDelay: '0.4s' }}>
               <Button asChild size="lg" className="btn-primary">
-                <Link to="/buy">Browse Inventory</Link>
+                <Link to="/buy">Browse Cars</Link>
               </Button>
-              <Button asChild size="lg" className="bg-transparent text-white border-white hover:bg-white/10">
+              <Button asChild size="lg" className="bg-white text-mavBlue border-white hover:bg-white/10 hover:text-white">
                 <Link to="/sell">Sell Your Car</Link>
               </Button>
             </div>

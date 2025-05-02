@@ -55,74 +55,12 @@ const SellPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative bg-gray-900 text-white">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url('https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-4.0.3')`,
-              filter: 'brightness(0.4)'
-            }}
-          ></div>
-        </div>
-        
-        <div className="container-custom relative z-10 py-16 md:py-24 text-center">
+      <div className="bg-gray-800 text-white">
+        <div className="container-custom py-16 md:py-24 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Sell Your Car with Confidence</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 mb-8">
             Get the best value for your vehicle with our expert evaluation
           </p>
-          <Button size="lg" className="btn-primary">
-            Get a Free Valuation
-          </Button>
-        </div>
-      </div>
-
-      {/* Why Sell With Us */}
-      <div className="section-padding">
-        <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-12 text-center">Why Sell Your Car with Mavullamma Cars</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: <DollarSign className="w-10 h-10 text-mavBlue" />,
-                title: "Fair & Competitive Pricing",
-                description: "Get the true value of your car based on expert evaluation"
-              },
-              {
-                icon: <Clock className="w-10 h-10 text-mavBlue" />,
-                title: "Quick Process",
-                description: "Complete the sale in as little as 24 hours"
-              },
-              {
-                icon: <FileText className="w-10 h-10 text-mavBlue" />,
-                title: "Hassle-Free Documentation",
-                description: "We handle all the paperwork for you"
-              },
-              {
-                icon: <DollarSign className="w-10 h-10 text-mavBlue" />,
-                title: "Immediate Payment",
-                description: "Receive payment quickly and securely"
-              },
-              {
-                icon: <Check className="w-10 h-10 text-mavBlue" />,
-                title: "No Hidden Charges",
-                description: "Transparent process with no surprise fees"
-              },
-              {
-                icon: <Check className="w-10 h-10 text-mavBlue" />,
-                title: "Expert Evaluation",
-                description: "Our team has 25+ years of experience in car valuation"
-              }
-            ].map((benefit, index) => (
-              <div key={index} className="p-6 bg-white rounded-lg shadow-md border border-gray-100">
-                <div className="flex items-center mb-4">
-                  <div className="mr-4 bg-blue-50 p-3 rounded-full">{benefit.icon}</div>
-                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
-                </div>
-                <p className="text-gray-600">{benefit.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
@@ -338,8 +276,57 @@ const SellPage = () => {
         </div>
       </div>
 
-      {/* FAQ Section */}
+      {/* Why Sell With Us */}
       <div className="section-padding bg-gray-50">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold mb-12 text-center">Why Sell Your Car with Mavullamma Cars</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                icon: <DollarSign className="w-10 h-10 text-mavBlue" />,
+                title: "Fair & Competitive Pricing",
+                description: "Get the true value of your car based on expert evaluation"
+              },
+              {
+                icon: <Clock className="w-10 h-10 text-mavBlue" />,
+                title: "Quick Process",
+                description: "Complete the sale in as little as 24 hours"
+              },
+              {
+                icon: <FileText className="w-10 h-10 text-mavBlue" />,
+                title: "Hassle-Free Documentation",
+                description: "We handle all the paperwork for you"
+              },
+              {
+                icon: <DollarSign className="w-10 h-10 text-mavBlue" />,
+                title: "Immediate Payment",
+                description: "Receive payment quickly and securely"
+              },
+              {
+                icon: <Check className="w-10 h-10 text-mavBlue" />,
+                title: "No Hidden Charges",
+                description: "Transparent process with no surprise fees"
+              },
+              {
+                icon: <Check className="w-10 h-10 text-mavBlue" />,
+                title: "Expert Evaluation",
+                description: "Our team has 25+ years of experience in car valuation"
+              }
+            ].map((benefit, index) => (
+              <div key={index} className="p-6 bg-white rounded-lg shadow-md border border-gray-100">
+                <div className="flex items-center mb-4">
+                  <div className="mr-4 bg-blue-50 p-3 rounded-full">{benefit.icon}</div>
+                  <h3 className="text-xl font-semibold">{benefit.title}</h3>
+                </div>
+                <p className="text-gray-600">{benefit.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* FAQ Section */}
+      <div className="section-padding bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
           <div className="max-w-3xl mx-auto">
@@ -365,7 +352,7 @@ const SellPage = () => {
                 answer: "We purchase all types of cars including sedans, hatchbacks, SUVs, and luxury vehicles. We particularly focus on premium used cars in good condition."
               }
             ].map((faq, index) => (
-              <div key={index} className="mb-6 bg-white p-6 rounded-lg shadow-sm">
+              <div key={index} className="mb-6 bg-gray-50 p-6 rounded-lg shadow-sm">
                 <h3 className="text-lg font-semibold mb-2">{faq.question}</h3>
                 <p className="text-gray-600">{faq.answer}</p>
               </div>
@@ -380,7 +367,7 @@ const SellPage = () => {
           <h2 className="text-3xl font-bold mb-6">Ready to Sell Your Car?</h2>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
             <Button asChild size="lg" className="bg-white text-mavBlue hover:bg-gray-100">
-              <a href="tel:9701511116">Call Now: 9701511116</a>
+              <a href="tel:9701511116">Call Us</a>
             </Button>
             <Button asChild size="lg" className="bg-transparent text-white border border-white hover:bg-white/10">
               <Link to="/contact">Visit Our Showroom</Link>

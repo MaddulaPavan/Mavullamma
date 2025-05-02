@@ -73,18 +73,8 @@ const ContactPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative bg-gray-900 text-white">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url('https://images.unsplash.com/photo-1596524430615-b46475ddff6e?ixlib=rb-4.0.3')`,
-              filter: 'brightness(0.4)'
-            }}
-          ></div>
-        </div>
-        
-        <div className="container-custom relative z-10 py-16 md:py-24 text-center">
+      <div className="bg-gray-800 text-white">
+        <div className="container-custom py-16 md:py-24 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch with Mavullamma Cars</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
             We're here to help with all your car-related needs
@@ -93,8 +83,8 @@ const ContactPage = () => {
       </div>
 
       {/* Contact Information and Map */}
-      <div className="section-padding">
-        <div className="container-custom">
+      <div className="section-padding bg-white">
+        <div className="container mx-auto px-8 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-8">Reach Us</h2>
@@ -157,13 +147,12 @@ const ContactPage = () => {
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-8">Our Location</h2>
               <div className="w-full h-96 bg-gray-200 rounded-lg overflow-hidden">
-                {/* Replace with actual Google Maps embed */}
                 <iframe 
                   src="https://maps.google.com/maps?q=bhimavaram&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                   width="100%" 
                   height="100%" 
                   style={{ border: 0 }} 
-                  allowFullScreen={true} 
+                  allowFullScreen={true}
                   loading="lazy"
                   title="Mavullamma Cars Location"
                 ></iframe>
@@ -172,14 +161,35 @@ const ContactPage = () => {
           </div>
         </div>
       </div>
+      
+      {/* CTA Section */}
+      <div className="section-padding bg-gray-100">
+        <div className="container mx-auto px-8 max-w-7xl text-center">
+          <h2 className="text-3xl font-bold mb-6">Visit Our Showroom</h2>
+          <p className="text-lg max-w-2xl mx-auto mb-8">
+            Experience our services firsthand by visiting our showroom in Bhimavaram. 
+            Our team is ready to assist you with all your car-related needs.
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
+              <a href="https://maps.google.com/maps?q=bhimavaram" target="_blank" rel="noopener noreferrer">
+                Get Directions
+              </a>
+            </Button>
+            <Button asChild size="lg" className="bg-white text-mavBlue hover:bg-gray-100">
+              <a href="tel:9701511116">Call Us</a>
+            </Button>
+          </div>
+        </div>
+      </div>
 
       {/* Contact Form */}
-      <div className="section-padding bg-gray-50">
-        <div className="container-custom">
+      <div className="section-padding bg-white">
+        <div className="container mx-auto px-8 max-w-7xl">
           <div className="max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">Send Us a Message</h2>
             
-            <form onSubmit={handleContactSubmit} className="bg-white p-8 rounded-lg shadow-md border border-gray-100">
+            <form onSubmit={handleContactSubmit} className="bg-gray-50 p-8 rounded-lg shadow-md border border-gray-100">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
@@ -251,8 +261,8 @@ const ContactPage = () => {
       </div>
 
       {/* Car Buying Consultancy */}
-      <div className="section-padding">
-        <div className="container-custom">
+      <div className="section-padding bg-gray-100">
+        <div className="container mx-auto px-8 max-w-7xl">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">Expert Car Buying Consultancy</h2>
             <p className="text-center text-gray-700 mb-12 text-lg">
@@ -391,27 +401,6 @@ const ContactPage = () => {
               
               <Button type="submit" className="w-full md:w-auto">Request Consultation</Button>
             </form>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="section-padding bg-mavBlue text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-6">Visit Our Showroom</h2>
-          <p className="text-lg max-w-2xl mx-auto mb-8">
-            Experience our services firsthand by visiting our showroom in Bhimavaram. 
-            Our team is ready to assist you with all your car-related needs.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="bg-green-600 hover:bg-green-700">
-              <a href="https://maps.google.com/maps?q=bhimavaram" target="_blank" rel="noopener noreferrer">
-                Get Directions
-              </a>
-            </Button>
-            <Button asChild size="lg" className="bg-white text-mavBlue hover:bg-gray-100">
-              <a href="tel:9701511116">Call Now: 9701511116</a>
-            </Button>
           </div>
         </div>
       </div>

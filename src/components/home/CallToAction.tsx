@@ -1,30 +1,23 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Phone, Map } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const CallToAction = () => {
   return (
-    <section className="bg-gradient-to-r from-mavBlue to-blue-700 text-white py-16">
+    <section className="section-padding bg-gray-100">
       <div className="container-custom">
-        <div className="text-center max-w-3xl mx-auto">
+        <div className="bg-mavBlue rounded-lg p-8 md:p-12 text-white text-center shadow-lg">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Looking for the Perfect Car? We Can Help!</h2>
-          <p className="text-lg mb-8">
-            Visit our showroom or call us today for expert advice on finding your ideal vehicle
+          <p className="text-lg mb-8 max-w-2xl mx-auto">
+            Let our experts with 25+ years of experience find the ideal vehicle that matches your needs and budget
           </p>
-          
           <div className="flex flex-wrap justify-center gap-4">
             <Button asChild size="lg" className="bg-white text-mavBlue hover:bg-gray-100">
-              <a href="tel:9701511116" className="inline-flex items-center">
-                <Phone className="mr-2 h-5 w-5" />
-                Call Now: 9701511116
-              </a>
+              <a href="tel:9701511116">Call Us</a>
             </Button>
-            <Button asChild size="lg" className="bg-mavGreen hover:bg-green-700">
-              <a href="https://maps.app.goo.gl/2wCkaqN3FXB9tHhV8" target="_blank" rel="noopener noreferrer" className="inline-flex items-center">
-                <Map className="mr-2 h-5 w-5" />
-                Get Directions
-              </a>
+            <Button asChild size="lg" variant="outline" className="text-white border-white hover:bg-white/10">
+              <Link to="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>

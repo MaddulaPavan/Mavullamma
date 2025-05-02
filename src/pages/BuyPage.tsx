@@ -86,16 +86,7 @@ const cars = [
   },
 ];
 
-// Filter options
-const brands = ['All', 'Hyundai', 'Maruti Suzuki', 'Toyota', 'Honda', 'Mahindra', 'Kia'];
-const fuelTypes = ['All', 'Petrol', 'Diesel', 'Electric', 'Hybrid'];
-const transmissions = ['All', 'Manual', 'Automatic', 'CVT', 'DCT'];
-
 const BuyPage = () => {
-  const [selectedBrand, setSelectedBrand] = useState('All');
-  const [selectedFuel, setSelectedFuel] = useState('All');
-  const [selectedTransmission, setSelectedTransmission] = useState('All');
-  
   // Format price to Indian currency format
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-IN', {
@@ -108,66 +99,12 @@ const BuyPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative bg-gray-900 text-white">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3')`,
-              filter: 'brightness(0.4)'
-            }}
-          ></div>
-        </div>
-        
-        <div className="container-custom relative z-10 py-16 md:py-24 text-center">
+      <div className="bg-gray-800 text-white py-16 md:py-24">
+        <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Find Your Perfect Car</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 mb-8">
             Browse our selection of premium verified vehicles
           </p>
-        </div>
-      </div>
-
-      {/* Search Filters */}
-      <div className="bg-white shadow-md py-6">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Brand</label>
-              <select
-                value={selectedBrand}
-                onChange={(e) => setSelectedBrand(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue"
-              >
-                {brands.map((brand) => (
-                  <option key={brand} value={brand}>{brand}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Fuel Type</label>
-              <select
-                value={selectedFuel}
-                onChange={(e) => setSelectedFuel(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue"
-              >
-                {fuelTypes.map((fuel) => (
-                  <option key={fuel} value={fuel}>{fuel}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Transmission</label>
-              <select
-                value={selectedTransmission}
-                onChange={(e) => setSelectedTransmission(e.target.value)}
-                className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue"
-              >
-                {transmissions.map((transmission) => (
-                  <option key={transmission} value={transmission}>{transmission}</option>
-                ))}
-              </select>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -225,7 +162,7 @@ const BuyPage = () => {
       </div>
 
       {/* How Buying Works */}
-      <div className="section-padding">
+      <div className="section-padding bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-12 text-center">Simple 4-Step Process</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -235,14 +172,14 @@ const BuyPage = () => {
               { icon: <Car className="w-10 h-10 text-mavBlue" />, title: "Documentation", description: "Fast and hassle-free paperwork" },
               { icon: <Car className="w-10 h-10 text-mavBlue" />, title: "Drive Home", description: "Drive away with confidence in your new car" }
             ].map((step, index) => (
-              <div key={index} className="text-center">
+              <div key={index} className="text-center relative">
                 <div className="mx-auto mb-4 w-16 h-16 rounded-full bg-mavBlue/10 flex items-center justify-center">
                   {step.icon}
                 </div>
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-gray-600">{step.description}</p>
                 {index < 3 && (
-                  <div className="hidden lg:block absolute transform translate-x-[130%] translate-y-[-120%]">
+                  <div className="hidden lg:block absolute top-8 left-[80%]">
                     <ArrowRight className="w-6 h-6 text-mavBlue" />
                   </div>
                 )}
@@ -258,7 +195,7 @@ const BuyPage = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">The Mavullamma Guarantee</h2>
             <p className="text-lg text-center mb-8">Every car in our inventory comes with:</p>
-            <div className="bg-white p-8 rounded-lg shadow-md">
+            <div className="bg-white p-6 rounded-lg shadow-md">
               <ul className="space-y-4">
                 {[
                   "Verified showroom track record",
@@ -285,10 +222,8 @@ const BuyPage = () => {
           <p className="text-lg max-w-2xl mx-auto mb-8">
             Tell us your requirements and we'll help you find the perfect car
           </p>
-          <Button asChild size="lg">
-            <Link to="/contact" className="bg-white text-mavBlue hover:bg-gray-100">
-              Contact Our Consultants
-            </Link>
+          <Button asChild size="lg" className="bg-white text-mavBlue hover:bg-gray-100">
+            <Link to="/contact">Contact Us</Link>
           </Button>
         </div>
       </div>

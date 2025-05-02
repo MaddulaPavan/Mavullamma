@@ -9,37 +9,43 @@ const services = [
     id: 1,
     title: 'Car Sales & Purchase',
     description: 'Wide range of premium verified cars to choose from, with transparent history and documentation.',
-    icon: Car
+    icon: Car,
+    link: '/buy'
   },
   {
     id: 2,
     title: 'Car Financing',
     description: 'Low-interest financing options with quick approvals and minimal documentation requirements.',
-    icon: DollarSign
+    icon: DollarSign,
+    link: '/financing'
   },
   {
     id: 3,
     title: 'Premium Car Wash',
     description: 'Professional car washing services that keep your vehicle looking pristine inside and out.',
-    icon: Droplet
+    icon: Droplet,
+    link: '/services'
   },
   {
     id: 4,
     title: 'Paint Protection Services',
     description: 'Ceramic coatings and protective films that maintain your car\'s appearance and value.',
-    icon: Shield
+    icon: Shield,
+    link: '/services'
   },
   {
     id: 5,
     title: 'Interior & Engine Cleaning',
     description: 'Deep cleaning services that remove dirt, stains, and bacteria for a healthier vehicle.',
-    icon: Wrench
+    icon: Wrench,
+    link: '/services'
   },
   {
     id: 6,
     title: 'Car Buying Consultancy',
     description: 'Expert advice to help you make informed decisions when buying or selling cars.',
-    icon: HeadphonesIcon
+    icon: HeadphonesIcon,
+    link: '/contact'
   }
 ];
 
@@ -65,7 +71,7 @@ const ServicesOverview = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                 <p className="text-gray-600 mb-4">{service.description}</p>
-                <Link to="/services" className="text-mavBlue font-medium hover:underline mt-auto inline-flex items-center">
+                <Link to={service.link} className="text-mavBlue font-medium hover:underline mt-auto inline-flex items-center">
                   Learn More
                   <ArrowRight className="ml-1 h-4 w-4" />
                 </Link>

@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -71,14 +71,23 @@ const Footer = () => {
 
             <h3 className="text-lg font-semibold mt-6 mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-mavBlue transition-colors" aria-label="Facebook">
-                <Facebook />
+              <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" className="hover:text-mavBlue transition-colors" aria-label="Youtube">
+                <Youtube />
               </a>
               <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" className="hover:text-mavBlue transition-colors" aria-label="Instagram">
                 <Instagram />
               </a>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-mavBlue transition-colors" aria-label="LinkedIn">
+                <Linkedin />
+              </a>
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-mavBlue transition-colors" aria-label="Twitter/X">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 21v-7.15a2 2 0 0 1 .38-1.2l6.26-7.9c.86-1.09 2.36-.92 3.18.32.1.15.18.32.24.5L22 10" /><path d="M18.5 5.5 15 10" /><path d="M2 21h8.16c.56 0 1.09-.24 1.46-.65L22 9" /></svg>
+              </a>
+              <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" className="hover:text-mavBlue transition-colors" aria-label="Facebook">
+                <Facebook />
+              </a>
               <a href="https://wa.me/9701511116" target="_blank" rel="noopener noreferrer" className="hover:text-mavBlue transition-colors" aria-label="WhatsApp">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-messages-square"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" /><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2v5Z" /><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" /></svg>
               </a>
             </div>
           </div>

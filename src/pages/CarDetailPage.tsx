@@ -111,6 +111,105 @@ const carDatabase = {
       'https://images.unsplash.com/photo-1546614042-7df3c24c9e5d?ixlib=rb-4.0.3',
       'https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3'
     ]
+  },
+  '4': {
+    id: 4,
+    name: 'Honda City ZX',
+    year: 2021,
+    price: 1280000,
+    kilometers: 20000,
+    fuel: 'Petrol',
+    transmission: 'CVT',
+    owner: '1st',
+    engine: '1.5L',
+    mileage: '18.4 kmpl',
+    color: 'Platinum White Pearl',
+    insurance: 'Valid until June 2024',
+    description: 'This Honda City ZX is a premium sedan with elegant styling and comfortable interiors. It features a sunroof, leather seats, and advanced safety features. The car has been maintained in excellent condition and comes with a complete service history.',
+    features: [
+      'Electric Sunroof',
+      'Leather Seats',
+      'Paddle Shifters',
+      'LED Headlamps with DRLs',
+      'Touchscreen Infotainment System with Smartphone Connectivity',
+      'Rear View Camera',
+      'Automatic Climate Control',
+      'Cruise Control',
+      'Lane Watch Camera',
+      '6 Airbags'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1520608760-eff2c38b0515?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1558575474-c479c7639927?ixlib=rb-4.0.3'
+    ]
+  },
+  '5': {
+    id: 5,
+    name: 'Mahindra XUV700 AX7',
+    year: 2022,
+    price: 2150000,
+    kilometers: 15000,
+    fuel: 'Diesel',
+    transmission: 'Automatic',
+    owner: '1st',
+    engine: '2.2L',
+    mileage: '16.5 kmpl',
+    color: 'Midnight Black',
+    insurance: 'Valid until August 2025',
+    description: 'This Mahindra XUV700 AX7 is a feature-packed SUV with premium interiors and powerful performance. It comes with ADAS features, panoramic sunroof, and a sophisticated infotainment system. The vehicle has been serviced regularly at authorized service centers.',
+    features: [
+      'Panoramic Sunroof',
+      'ADAS Features (Adaptive Cruise Control, Lane Keep Assist)',
+      'Dual 10.25-inch Screens',
+      'Wireless Android Auto & Apple CarPlay',
+      'Alexa Built-in',
+      'AdrenoX Connected Car Technology',
+      '360-degree Camera',
+      'Harman Kardon Sound System',
+      'Ventilated Front Seats',
+      '7 Airbags'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3'
+    ]
+  },
+  '6': {
+    id: 6,
+    name: 'Kia Seltos HTX',
+    year: 2021,
+    price: 1350000,
+    kilometers: 22000,
+    fuel: 'Petrol',
+    transmission: 'DCT',
+    owner: '1st',
+    engine: '1.4L Turbo',
+    mileage: '16.8 kmpl',
+    color: 'Gravity Grey',
+    insurance: 'Valid until March 2025',
+    description: 'This Kia Seltos HTX is a stylish and feature-rich compact SUV. It comes with UVO connected car features, Bose premium sound system, and advanced driver assistance. The vehicle has been maintained well and comes with complete service history.',
+    features: [
+      'UVO Connected Car Technology',
+      'Bose Premium Sound System',
+      '10.25-inch Touchscreen Infotainment',
+      'Ventilated Front Seats',
+      'Air Purifier',
+      'LED Sound Mood Lighting',
+      'Wireless Phone Charger',
+      'Traction Control Modes',
+      'Electric Sunroof',
+      '6 Airbags'
+    ],
+    images: [
+      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixlib=rb-4.0.3',
+      'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3'
+    ]
   }
 };
 
@@ -348,7 +447,6 @@ const CarDetailPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.values(carDatabase)
               .filter(otherCar => otherCar.id !== car.id)
-              .slice(0, 3)
               .map(similarCar => (
                 <div key={similarCar.id} className="car-card overflow-hidden flex flex-col">
                   <div className="aspect-w-16 aspect-h-10 bg-gray-100">

@@ -1,6 +1,8 @@
 
 import React from 'react';
-import { Check, Award, Heart, Shield, Coffee } from 'lucide-react';
+import { Check, Award, Heart, Shield, Coffee, Link as LinkIcon, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const AboutPage = () => {
   const achievements = [
@@ -37,24 +39,19 @@ const AboutPage = () => {
       icon: <Award className="w-10 h-10 text-mavBlue" />,
       title: 'After-Sale Support',
       description: 'Our relationship continues even after you drive away with your car.'
+    },
+    {
+      icon: <Star className="w-10 h-10 text-mavBlue" />,
+      title: 'Community Commitment',
+      description: 'We're dedicated to giving back to the community that has supported us.'
     }
   ];
 
   return (
     <div className="bg-white">
       {/* Hero Section */}
-      <div className="relative bg-gray-900 text-white">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url('https://images.unsplash.com/photo-1562911791-c7a97b729ec5?ixlib=rb-4.0.3')`,
-              filter: 'brightness(0.4)'
-            }}
-          ></div>
-        </div>
-        
-        <div className="container-custom relative z-10 py-20 md:py-28 text-center">
+      <div className="bg-gray-800 text-white">
+        <div className="container-custom py-20 md:py-28 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Journey of Excellence</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
             Trusted by over 10 lakh customers across Andhra Pradesh & Telangana
@@ -128,7 +125,7 @@ const AboutPage = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Our Core Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <div key={index} className="p-6 bg-white rounded-lg shadow-md border border-gray-100 flex flex-col items-center text-center">
+              <div key={index} className="p-6 bg-white rounded-lg shadow-md border border-gray-100 flex flex-col items-center text-center h-full">
                 <div className="mb-4">{value.icon}</div>
                 <h3 className="text-xl font-semibold mb-3">{value.title}</h3>
                 <p className="text-gray-600">{value.description}</p>
@@ -163,12 +160,12 @@ const AboutPage = () => {
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Experience the Mavullamma Difference?</h2>
           <div className="flex flex-wrap justify-center gap-4 mt-8">
-            <a href="/buy" className="btn-primary bg-white text-mavBlue hover:bg-gray-100">
-              Browse Our Inventory
-            </a>
-            <a href="/contact" className="btn-secondary text-white border-white hover:bg-white/10">
-              Contact Us
-            </a>
+            <Button asChild size="lg" className="bg-white text-mavBlue hover:bg-gray-100">
+              <Link to="/buy">Browse Our Inventory</Link>
+            </Button>
+            <Button asChild size="lg" className="text-mavBlue bg-white border-white hover:bg-gray-100">
+              <Link to="/contact">Contact Us</Link>
+            </Button>
           </div>
         </div>
       </div>
