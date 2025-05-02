@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-[#0b1526] text-white overflow-hidden">
+    <section className="relative bg-[#0047AB] text-white overflow-hidden">
       <div className="container-custom relative z-10 py-20 md:py-28 lg:py-36">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="relative z-20">
@@ -19,14 +19,14 @@ const HeroSection = () => {
               <Button asChild size="lg" className="btn-primary">
                 <Link to="/buy">Browse Cars</Link>
               </Button>
-              <Button asChild size="lg" className="bg-white text-mavBlue border-white hover:bg-white/10 hover:text-white">
+              <Button asChild size="lg" className="bg-white text-[#0047AB] border-white hover:bg-white/10 hover:text-white">
                 <Link to="/sell">Sell Your Car</Link>
               </Button>
             </div>
           </div>
           <div className="hidden md:flex items-center justify-end">
             <img 
-              src="/lovable-uploads/994077b9-89f7-4d8b-9475-74ddc3b161c3.png" 
+              src="/lovable-uploads/56d41d58-5633-4df4-aa83-2860bbc4e1d6.png" 
               alt="Premium Car" 
               className="max-w-full object-contain animate-fade-in"
               style={{ animationDelay: '0.6s' }}

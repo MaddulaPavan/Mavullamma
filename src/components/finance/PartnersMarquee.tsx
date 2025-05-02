@@ -12,13 +12,13 @@ const partners = [
 
 const PartnersMarquee = () => {
   return (
-    <div className="bg-gray-50 py-12">
+    <div className="bg-gray-50 py-12 overflow-hidden">
       <div className="container-custom">
         <h2 className="text-3xl font-bold mb-10 text-center">Our Trusted Financial Partners</h2>
-        <div className="relative overflow-hidden">
-          <div className="flex animate-marquee">
-            {[...partners, ...partners].map((partner, index) => (
-              <div key={index} className="flex-shrink-0 w-48 h-20 mx-8">
+        <div className="relative w-full">
+          <div className="flex animate-marquee space-x-8 whitespace-nowrap">
+            {[...partners, ...partners, ...partners].map((partner, index) => (
+              <div key={index} className="flex-shrink-0 w-48 h-20">
                 <div className="bg-white h-full w-full rounded-md shadow-sm flex items-center justify-center p-4">
                   <img 
                     src={partner.logo} 

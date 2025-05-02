@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin } from 'lucide-react';
@@ -6,7 +7,7 @@ const ContactPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="bg-[#0b1526] text-white py-16 md:py-24">
+      <div className="bg-[#0047AB] text-white py-16 md:py-24">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Get In Touch</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
@@ -278,6 +279,19 @@ const ContactPage = () => {
               </div>
             </form>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="section-padding bg-[#0047AB] text-white">
+        <div className="container-custom text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Find Your Dream Car?</h2>
+          <p className="text-lg max-w-2xl mx-auto mb-8">
+            Our experts are ready to assist you in finding the perfect vehicle that matches your needs
+          </p>
+          <Button asChild size="lg" className="bg-white text-[#0047AB] hover:bg-gray-100">
+            <a href="tel:9701511116">Call Us</a>
+          </Button>
         </div>
       </section>
     </div>
