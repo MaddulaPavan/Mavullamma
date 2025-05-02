@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Layers, Shield, Activity, Zap, Car } from 'lucide-react';
@@ -139,6 +138,35 @@ const ServicesPage = () => {
     }
   ];
 
+  const reasons = [
+    "Premium Care for Premium Cars",
+    "Experienced Technicians",
+    "High-Quality Products",
+    "Attention to Detail",
+    "Customer Satisfaction Guaranteed"
+  ];
+
+  // The rendered section for Why Choose Our Services
+  const renderWhyChooseSection = () => (
+    <section className="section-padding bg-gray-50">
+      <div className="container-custom">
+        <h2 className="text-3xl font-bold mb-10 text-center">Why Choose Our Services</h2>
+        <div className="max-w-3xl mx-auto">
+          <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+            <ul className="space-y-3">
+              {reasons.map((reason, index) => (
+                <li key={index} className="flex items-center py-2 px-3 border-b last:border-b-0 border-gray-100">
+                  <Check className="w-5 h-5 text-green-500 mr-3 shrink-0" />
+                  <span className="text-gray-700">{reason}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+
   return (
     <div>
       {/* Hero Section */}
@@ -247,31 +275,8 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      {/* Why Choose Our Services */}
-      <div className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-10 text-center">Why Choose Our Services</h2>
-            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-              <ul className="space-y-4">
-                {[
-                  "Premium Care for Premium Cars",
-                  "Experienced Technicians",
-                  "High-Quality Products",
-                  "Attention to Detail",
-                  "Customer Satisfaction Guaranteed"
-                ].map((point, index) => (
-                  <li key={index} className="flex items-start">
-                    <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{point}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      {renderWhyChooseSection()}
+      
       {/* CTA Section */}
       <div className="section-padding bg-mavBlue text-white">
         <div className="container-custom">
@@ -297,6 +302,24 @@ const ServicesPage = () => {
                   <option value="premium-package">Premium Protection Package</option>
                   <option value="essential-package">Essential Care Package</option>
                   <option value="maintenance-package">Complete Maintenance Package</option>
+                </select>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Vehicle Name</label>
+                <input 
+                  type="text" 
+                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue text-gray-900" 
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Vehicle Type</label>
+                <select className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue text-gray-900">
+                  <option value="">Select a Vehicle Type</option>
+                  <option value="car">Car</option>
+                  <option value="truck">Truck</option>
+                  <option value="suv">SUV</option>
+                  <option value="van">Van</option>
                 </select>
               </div>
               <div>
