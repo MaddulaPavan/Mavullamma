@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -195,7 +194,7 @@ const BuyPage = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">The Mavullamma Guarantee</h2>
             <p className="text-lg text-center mb-8">Every car in our inventory comes with:</p>
-            <div className="bg-white p-6 rounded-lg shadow-md">
+            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
               <ul className="space-y-4">
                 {[
                   "Verified showroom track record",
@@ -204,7 +203,7 @@ const BuyPage = () => {
                   "Free interior and engine cleaning",
                   "Assistance with financing if needed"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-start">
+                  <li key={index} className="flex items-start p-3 border border-gray-200 rounded-md">
                     <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </li>

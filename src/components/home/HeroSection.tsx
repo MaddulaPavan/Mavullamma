@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
-    <section className="relative bg-gray-900 text-white overflow-hidden">
+    <section className="relative bg-mavBlue text-white overflow-hidden">
       {/* Background with dark navy gradient */}
       <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#0b1526] to-[#11203c]"></div>
       
       <div className="container-custom relative z-10 py-20 md:py-28 lg:py-36">
-        {/* Content container with full width now that image is removed */}
-        <div className="grid grid-cols-1">
-          <div className="relative z-20 max-w-3xl">
+        {/* Content container with grid for text and image */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="relative z-20">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 leading-tight animate-fade-in">
               Your Trusted Partner for Premium Used Cars Since 1998
             </h1>
@@ -27,6 +27,16 @@ const HeroSection = () => {
                 <Link to="/sell">Sell Your Car</Link>
               </Button>
             </div>
+          </div>
+          
+          {/* Car image on the right */}
+          <div className="relative z-10 hidden md:block">
+            <img 
+              src="/lovable-uploads/939842be-d16b-43ca-aee4-0691caea6ba5.png" 
+              alt="Premium Car" 
+              className="w-full h-auto object-contain animate-fade-in"
+              style={{ animationDelay: '0.6s' }}
+            />
           </div>
         </div>
       </div>

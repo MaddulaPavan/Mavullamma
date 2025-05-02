@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Layers, Shield, Activity, Zap, Car } from 'lucide-react';
@@ -141,17 +140,9 @@ const ServicesPage = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <div className="relative bg-gray-900 text-white">
-        <div className="absolute inset-0 z-0">
-          <div 
-            className="w-full h-full bg-cover bg-center"
-            style={{ 
-              backgroundImage: `url('https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?ixlib=rb-4.0.3')`,
-              filter: 'brightness(0.4)'
-            }}
-          ></div>
-        </div>
+      {/* Hero Section - Changed to solid blue background */}
+      <div className="relative bg-mavBlue text-white">
+        <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#0b1526] to-[#11203c]"></div>
         
         <div className="container-custom relative z-10 py-16 md:py-24 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Premium Car Care Services</h1>
@@ -247,7 +238,7 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      {/* Why Choose Our Services */}
+      {/* Why Choose Our Services - Updated with framed points */}
       <div className="section-padding">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
@@ -261,7 +252,7 @@ const ServicesPage = () => {
                   "Attention to Detail",
                   "Customer Satisfaction Guaranteed"
                 ].map((point, index) => (
-                  <li key={index} className="flex items-start">
+                  <li key={index} className="flex items-start p-3 border border-gray-200 rounded-md">
                     <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{point}</span>
                   </li>
