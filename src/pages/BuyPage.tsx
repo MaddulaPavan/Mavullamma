@@ -99,7 +99,7 @@ const BuyPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="bg-[#0047AB] text-white py-16 md:py-24">
+      <div className="bg-[#0b1526] text-white py-16 md:py-24">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Find Your Perfect Car</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 mb-8">
@@ -195,7 +195,7 @@ const BuyPage = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">The Mavullamma Guarantee</h2>
             <p className="text-lg text-center mb-8">Every car in our inventory comes with:</p>
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200 max-w-xl mx-auto">
+            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
               <ul className="space-y-3">
                 {[
                   "Verified showroom track record",
@@ -216,13 +216,13 @@ const BuyPage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="section-padding bg-[#0047AB] text-white">
+      <div className="section-padding bg-[#0b1526] text-white">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold mb-6">Can't Find What You're Looking For?</h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">
             Tell us your requirements and we'll help you find the perfect car
           </p>
-          <Button asChild size="lg" className="bg-white text-[#0047AB] hover:bg-gray-100">
+          <Button asChild size="lg" className="bg-white text-mavBlue hover:bg-gray-100">
             <Link to="/contact">Contact Us</Link>
           </Button>
         </div>
