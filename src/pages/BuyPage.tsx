@@ -99,7 +99,7 @@ const BuyPage = () => {
   return (
     <div>
       {/* Hero Section */}
-      <div className="bg-[#0b1526] text-white py-16 md:py-24">
+      <div className="bg-gray-800 text-white py-16 md:py-24">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Find Your Perfect Car</h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 mb-8">
@@ -165,7 +165,7 @@ const BuyPage = () => {
       <div className="section-padding bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-12 text-center">Simple 4-Step Process</h2>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { icon: <Car className="w-10 h-10 text-mavBlue" />, title: "Browse & Select", description: "Explore our verified premium cars online" },
               { icon: <Car className="w-10 h-10 text-mavBlue" />, title: "Test Drive", description: "Visit our showroom for a test drive experience" },
@@ -179,7 +179,7 @@ const BuyPage = () => {
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-gray-600">{step.description}</p>
                 {index < 3 && (
-                  <div className="hidden md:block absolute top-8 right-0 transform translate-x-1/2">
+                  <div className="hidden lg:block absolute top-8 left-[80%]">
                     <ArrowRight className="w-6 h-6 text-mavBlue" />
                   </div>
                 )}
@@ -195,8 +195,8 @@ const BuyPage = () => {
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold mb-8 text-center">The Mavullamma Guarantee</h2>
             <p className="text-lg text-center mb-8">Every car in our inventory comes with:</p>
-            <div className="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-              <ul className="space-y-3">
+            <div className="bg-white p-6 rounded-lg shadow-md">
+              <ul className="space-y-4">
                 {[
                   "Verified showroom track record",
                   "Complete history documentation",
@@ -204,8 +204,8 @@ const BuyPage = () => {
                   "Free interior and engine cleaning",
                   "Assistance with financing if needed"
                 ].map((item, index) => (
-                  <li key={index} className="flex items-center py-2 px-3 border-b last:border-b-0 border-gray-100">
-                    <Check className="w-5 h-5 text-green-500 mr-3 shrink-0" />
+                  <li key={index} className="flex items-start">
+                    <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
                     <span className="text-gray-700">{item}</span>
                   </li>
                 ))}
@@ -216,7 +216,7 @@ const BuyPage = () => {
       </div>
 
       {/* CTA Section */}
-      <div className="section-padding bg-[#0b1526] text-white">
+      <div className="section-padding bg-mavBlue text-white">
         <div className="container-custom text-center">
           <h2 className="text-3xl font-bold mb-6">Can't Find What You're Looking For?</h2>
           <p className="text-lg max-w-2xl mx-auto mb-8">

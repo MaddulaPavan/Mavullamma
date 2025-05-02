@@ -13,7 +13,7 @@ const reasons = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="section-padding bg-[#0b1526] text-white relative">
+    <section className="section-padding bg-gray-900 text-white relative overflow-hidden">
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Mavullamma Cars</h2>
