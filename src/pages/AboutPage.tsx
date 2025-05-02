@@ -43,7 +43,7 @@ const AboutPage = () => {
     {
       icon: <Star className="w-10 h-10 text-mavBlue" />,
       title: 'Community Commitment',
-      description: 'We're dedicated to giving back to the community that has supported us.'
+      description: "We're dedicated to giving back to the community that has supported us."
     }
   ];
 
