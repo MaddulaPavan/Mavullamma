@@ -3,26 +3,22 @@ import { Button } from '@/components/ui/button';
 import { Check, Calculator, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import FinancialPartnersCarousel from '@/components/financing/FinancialPartnersCarousel';
+import PageHeader from '@/components/PageHeader';
 
 const FinancingPage = () => {
   return (
     <div>
-      {/* Hero Section - With solid blue background instead of image */}
-      <div className="relative bg-mavBlue text-white">
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#0b1526] to-[#11203c]"></div>
-        
-        <div className="container-custom relative z-10 py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Car Financing Solutions</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-            Flexible financing options to help you drive home your dream car
-          </p>
-        </div>
-      </div>
+      {/* Hero Section */}
+      <PageHeader 
+        title="Car Financing Solutions"
+        subtitle="Flexible financing options to help you drive home your dream car"
+        backgroundImage="https://images.unsplash.com/photo-1460574283810-2aab119d8511?ixlib=rb-4.0.3"
+      />
       
       {/* Financial Partners Carousel */}
       <FinancialPartnersCarousel />
       
-      {/* Rest of the financing page content */}
+      {/* Financing Options */}
       <div className="section-padding">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
