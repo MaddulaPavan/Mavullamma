@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Check, Award, Heart, Shield, Coffee, Link as LinkIcon, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -10,8 +11,10 @@ const AboutPage = () => {
     { year: '2005', milestone: 'Expanded services to include car financing and consultancy' },
     { year: '2010', milestone: 'Served our 50,000th customer' },
     { year: '2015', milestone: 'Added premium car care services' },
-    { year: '2020', milestone: 'Reached the milestone of 10 lakh+ satisfied customers' },
+    { year: '2020', milestone: 'Reached the milestone of 3,00,000+ satisfied customers' },
     { year: '2023', milestone: 'Established as the leading premium used car consultancy in AP & TS' },
+    { year: '2024', milestone: 'Partnerships Achieved: TVS, Chola, Bajaj, Piramal' },
+    { year: '2024', milestone: 'Full finance facility from multiple top companies' },
   ];
 
   const values = [
@@ -52,7 +55,7 @@ const AboutPage = () => {
       {/* Replace Hero Section with PageHeader */}
       <PageHeader 
         title="Our Journey of Excellence" 
-        subtitle="Trusted by over 10 lakh customers across Andhra Pradesh & Telangana"
+        subtitle="Trusted by over 3,00,000+ customers across Andhra Pradesh & Telangana"
         bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3"
       />
 
@@ -73,7 +76,7 @@ const AboutPage = () => {
                 Our reputation is built on honesty, quality, and customer satisfaction. 
                 Every vehicle we sell undergoes a rigorous inspection to ensure it meets our 
                 strict standards of quality and performance. Our commitment to excellence has 
-                earned us the trust of over 10 lakh customers from all walks of life across 
+                earned us the trust of over 3,00,000+ customers from all walks of life across 
                 Andhra Pradesh and Telangana.
               </p>
             </div>

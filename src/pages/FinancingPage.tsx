@@ -76,11 +76,48 @@ const FinancingPage = () => {
                 </Button>
               </div>
             </div>
+            
+            {/* Updated Financing Options info */}
+            <div className="mt-12">
+              <h3 className="text-xl font-bold mb-6">More Financing Options</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <Check className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <div>
+                    <span className="font-medium">Used Cars:</span> Financing available for quality-inspected used cars.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <div>
+                    <span className="font-medium">New Cars:</span> Finance options with flexible tenure and fast approvals.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <div>
+                    <span className="font-medium">Interest Rates:</span> Competitive rates from multiple financiers.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <div>
+                    <span className="font-medium">Loan Tenure:</span> Typically 24 months to 60 months depending on eligibility.
+                  </div>
+                </li>
+                <li className="flex items-start">
+                  <Check className="w-5 h-5 text-green-500 mr-3 mt-1" />
+                  <div>
+                    <span className="font-medium">Approval Process:</span> Quick 2-day processing with all required documents.
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
       
-      {/* 4-Step Financing Process */}
+      {/* 4-Step Financing Process - Updated */}
       <div className="section-padding bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-10 text-center">Simple 4-Step Financing Process</h2>
@@ -88,23 +125,23 @@ const FinancingPage = () => {
             {[
               { 
                 step: 1, 
-                title: "Apply Online", 
-                description: "Fill out our simple online application form with your basic details and requirements" 
+                title: "Document Collection", 
+                description: "Gather necessary documents based on employment type (Salaried/Self-Employed)" 
               },
               { 
                 step: 2, 
-                title: "Document Submission", 
-                description: "Submit required documents for verification and loan processing" 
+                title: "Eligibility Check", 
+                description: "Verify income, CIBIL score, and basic criteria with partnered finance companies" 
               },
               { 
                 step: 3, 
-                title: "Loan Approval", 
-                description: "Get your loan approved within 24-48 hours with competitive interest rates" 
+                title: "Application & Approval", 
+                description: "Submit application. Approval usually within 2 working days" 
               },
               { 
                 step: 4, 
-                title: "Drive Your Car", 
-                description: "Complete the formalities and drive home your dream car" 
+                title: "Loan Disbursement", 
+                description: "Once approved, funds are disbursed, and the vehicle can be delivered" 
               }
             ].map((step, index) => (
               <div key={index} className="bg-white p-6 rounded-lg shadow-md border border-gray-200 text-center relative">
@@ -220,7 +257,7 @@ const FinancingPage = () => {
         </div>
       </div>
       
-      {/* Documents Required Section */}
+      {/* Documents Required Section - Updated */}
       <div className="section-padding">
         <div className="container-custom">
           <h2 className="text-3xl font-bold mb-10 text-center">Documents Required</h2>
@@ -229,12 +266,11 @@ const FinancingPage = () => {
               <h3 className="text-xl font-bold mb-4 text-mavBlue">Salaried Individuals</h3>
               <ul className="space-y-3">
                 {[
-                  "Identity Proof (Aadhar/PAN/Passport)",
-                  "Address Proof (Utility Bill/Rental Agreement)",
-                  "Income Proof (Salary Slips for 3 months)",
-                  "Bank Statements for last 6 months",
-                  "Form 16 or IT Returns for last 2 years",
-                  "Passport size photographs"
+                  "Aadhaar Card",
+                  "PAN Card",
+                  "Salary Certificate",
+                  "Bank Statement (6 Months)",
+                  "Own House Current Bill (Proof of Residence)"
                 ].map((doc, index) => (
                   <li key={index} className="flex items-start">
                     <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
@@ -247,13 +283,10 @@ const FinancingPage = () => {
               <h3 className="text-xl font-bold mb-4 text-mavBlue">Self-Employed</h3>
               <ul className="space-y-3">
                 {[
-                  "Identity Proof (Aadhar/PAN/Passport)",
-                  "Address Proof (Utility Bill/Property Deed)",
-                  "Business Existence Proof",
-                  "Bank Statements for last 6 months",
-                  "IT Returns for last 2 years",
-                  "Balance Sheet & P&L by CA",
-                  "Passport size photographs"
+                  "Aadhaar Card",
+                  "PAN Card",
+                  "Bank Statement (6 Months)",
+                  "IT Returns"
                 ].map((doc, index) => (
                   <li key={index} className="flex items-start">
                     <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
