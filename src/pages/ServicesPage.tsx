@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Layers, Shield, Activity, Zap, Car } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import PageHeader from '@/components/PageHeader';
 
 const ServicesPage = () => {
   // Service categories
@@ -140,18 +141,12 @@ const ServicesPage = () => {
 
   return (
     <div>
-      {/* Hero Section - Changed to solid blue background */}
-      <div className="relative bg-mavBlue text-white">
-        <div className="absolute inset-0 z-0 bg-gradient-to-r from-[#0b1526] to-[#11203c]"></div>
-        
-        <div className="container-custom relative z-10 py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Premium Car Care Services</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-            Professional solutions to keep your car in perfect condition
-          </p>
-        </div>
-      </div>
-
+      <PageHeader 
+        title="Our Premium Services" 
+        subtitle="Professional automotive services tailored to your needs"
+        bgImage="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3"
+      />
+      
       {/* Services Overview */}
       <div className="section-padding">
         <div className="container-custom">

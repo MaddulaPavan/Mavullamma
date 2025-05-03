@@ -9,7 +9,7 @@ import CallToAction from '@/components/home/CallToAction';
 
 const Index = () => {
   return (
-    <div>
+    <div className="min-w-full">
       <HeroSection />
       <FeaturedCars />
       <ServicesOverview />

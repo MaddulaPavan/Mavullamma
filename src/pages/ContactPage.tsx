@@ -1,9 +1,9 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
 import { Link } from 'react-router-dom';
+import PageHeader from '@/components/PageHeader';
 
 const ContactPage = () => {
   const [contactForm, setContactForm] = useState({
@@ -72,6 +72,12 @@ const ContactPage = () => {
 
   return (
     <div>
+      <PageHeader 
+        title="Contact Us" 
+        subtitle="We're here to answer your questions and provide assistance"
+        bgImage="https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3"
+      />
+      
       {/* Hero Section */}
       <div className="bg-gray-800 text-white">
         <div className="container-custom py-16 md:py-24 text-center">

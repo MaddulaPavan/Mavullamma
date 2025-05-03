@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Check, Award, Heart, Shield, Coffee, Link as LinkIcon, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import PageHeader from '@/components/PageHeader';
 
 const AboutPage = () => {
   const achievements = [
@@ -49,15 +49,12 @@ const AboutPage = () => {
 
   return (
     <div className="bg-white">
-      {/* Hero Section */}
-      <div className="bg-gray-800 text-white">
-        <div className="container-custom py-20 md:py-28 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Journey of Excellence</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-            Trusted by over 10 lakh customers across Andhra Pradesh & Telangana
-          </p>
-        </div>
-      </div>
+      {/* Replace Hero Section with PageHeader */}
+      <PageHeader 
+        title="Our Journey of Excellence" 
+        subtitle="Trusted by over 10 lakh customers across Andhra Pradesh & Telangana"
+        bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3"
+      />
 
       {/* Our Story */}
       <div className="section-padding">

@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Star, Check, ArrowRight, Car } from 'lucide-react';
+import PageHeader from '@/components/PageHeader';
 
 // Sample car data
 const cars = [
@@ -97,15 +98,12 @@ const BuyPage = () => {
 
   return (
     <div>
-      {/* Hero Section */}
-      <div className="bg-gray-800 text-white py-16 md:py-24">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Find Your Perfect Car</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200 mb-8">
-            Browse our selection of premium verified vehicles
-          </p>
-        </div>
-      </div>
+      {/* Replace Hero Section with PageHeader */}
+      <PageHeader 
+        title="Find Your Perfect Car"
+        subtitle="Browse our selection of premium verified vehicles"
+        bgImage="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3"
+      />
 
       {/* Car Listings */}
       <div className="section-padding bg-gray-50">
