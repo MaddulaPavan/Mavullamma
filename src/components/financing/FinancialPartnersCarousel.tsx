@@ -1,6 +1,5 @@
 
 import React, { useEffect, useRef } from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const financialPartners = [
   { name: "ICICI Bank", logo: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3" },
@@ -12,7 +11,6 @@ const financialPartners = [
 
 const FinancialPartnersCarousel = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
   
   useEffect(() => {
     const scrollContainer = scrollRef.current;
@@ -34,9 +32,9 @@ const FinancialPartnersCarousel = () => {
   }, []);
 
   return (
-    <div className="w-full bg-gray-50 py-6 md:py-8 overflow-hidden">
+    <div className="w-full bg-gray-50 py-8 overflow-hidden">
       <div className="container-custom mb-4">
-        <h2 className="text-xl md:text-2xl font-bold text-center mb-4 md:mb-6">Our Financial Partners</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">Our Financial Partners</h2>
       </div>
       
       <div 
@@ -48,16 +46,16 @@ const FinancialPartnersCarousel = () => {
         {[...financialPartners, ...financialPartners].map((partner, index) => (
           <div 
             key={index} 
-            className="inline-flex flex-col items-center justify-center mx-3 md:mx-6"
+            className="inline-flex flex-col items-center justify-center mx-6"
           >
-            <div className={`bg-white flex items-center justify-center p-2 md:p-3 rounded shadow ${isMobile ? 'w-24 h-12' : 'w-36 h-16'}`}>
+            <div className="w-36 h-16 bg-white flex items-center justify-center p-3 rounded shadow">
               <img 
                 src={partner.logo} 
                 alt={partner.name} 
                 className="max-w-full max-h-full object-contain"
               />
             </div>
-            <span className="mt-1 md:mt-2 font-medium text-xs md:text-sm">{partner.name}</span>
+            <span className="mt-2 font-medium text-sm">{partner.name}</span>
           </div>
         ))}
       </div>
