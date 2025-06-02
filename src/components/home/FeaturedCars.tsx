@@ -1,61 +1,9 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Car, Fuel, Settings, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardFooter } from '@/components/ui/card';
-
-// Mock data for featured cars
-const featuredCars = [
-  {
-    id: 1,
-    name: 'Maruti Swift',
-    image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    year: 2022,
-    price: 650000,
-    specs: {
-      fuel: 'Petrol',
-      km: 15000,
-      transmission: 'Manual'
-    }
-  },
-  {
-    id: 2,
-    name: 'Hyundai Verna',
-    image: 'https://images.unsplash.com/photo-1583267746897-2cf415887172?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    year: 2021,
-    price: 850000,
-    specs: {
-      fuel: 'Diesel',
-      km: 22000,
-      transmission: 'Automatic'
-    }
-  },
-  {
-    id: 3,
-    name: 'Honda City',
-    image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    year: 2020,
-    price: 780000,
-    specs: {
-      fuel: 'Diesel',
-      km: 35000,
-      transmission: 'Manual'
-    }
-  },
-  {
-    id: 4,
-    name: 'Volkswagen Passat',
-    image: 'https://images.unsplash.com/photo-1616422285623-13ff926fa3ce?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3',
-    year: 2019,
-    price: 1200000,
-    specs: {
-      fuel: 'Petrol',
-      km: 42000,
-      transmission: 'Automatic'
-    }
-  }
-];
+import { getFeaturedCars } from '@/data/carDatabase';
 
 // Format price to Indian Rupees
 const formatPrice = (price: number) => {
@@ -67,6 +15,8 @@ const formatPrice = (price: number) => {
 };
 
 const FeaturedCars = () => {
+  const featuredCars = getFeaturedCars();
+
   return (
     <section className="section-padding bg-gray-50">
       <div className="container-custom">
@@ -82,7 +32,7 @@ const FeaturedCars = () => {
             <Card key={car.id} className="car-card overflow-hidden h-full flex flex-col">
               <div className="relative h-48 overflow-hidden">
                 <img 
-                  src={car.image} 
+                  src={car.images[0]} 
                   alt={car.name} 
                   className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                 />
@@ -98,15 +48,15 @@ const FeaturedCars = () => {
                 <div className="grid grid-cols-3 gap-2 mb-3">
                   <div className="flex flex-col items-center text-gray-600">
                     <Fuel className="h-5 w-5 mb-1" />
-                    <span className="text-sm">{car.specs.fuel}</span>
+                    <span className="text-sm">{car.fuel}</span>
                   </div>
                   <div className="flex flex-col items-center text-gray-600">
                     <Car className="h-5 w-5 mb-1" />
-                    <span className="text-sm">{car.specs.km} KM</span>
+                    <span className="text-sm">{car.kilometers.toLocaleString()} KM</span>
                   </div>
                   <div className="flex flex-col items-center text-gray-600">
                     <Settings className="h-5 w-5 mb-1" />
-                    <span className="text-sm">{car.specs.transmission}</span>
+                    <span className="text-sm">{car.transmission}</span>
                   </div>
                 </div>
               </CardContent>

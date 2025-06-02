@@ -2,91 +2,24 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { Star, Check, ArrowRight, Car } from 'lucide-react';
+import { getAllCars } from '@/data/carDatabase';
 import PageHeader from '@/components/PageHeader';
 
-// Sample car data
-const cars = [
-  {
-    id: 1,
-    name: 'Hyundai Creta SX',
-    year: 2022,
-    price: 1580000,
-    image: 'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3',
-    specs: {
-      fuel: 'Petrol',
-      transmission: 'Automatic',
-      km: 18000,
-      owner: '1st'
-    }
-  },
-  {
-    id: 2,
-    name: 'Maruti Suzuki Swift ZXI',
-    year: 2021,
-    price: 780000,
-    image: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3',
-    specs: {
-      fuel: 'Petrol',
-      transmission: 'Manual',
-      km: 25000,
-      owner: '1st'
-    }
-  },
-  {
-    id: 3,
-    name: 'Toyota Fortuner 4x4',
-    year: 2020,
-    price: 3250000,
-    image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3',
-    specs: {
-      fuel: 'Diesel',
-      transmission: 'Automatic',
-      km: 35000,
-      owner: '1st'
-    }
-  },
-  {
-    id: 4,
-    name: 'Honda City ZX',
-    year: 2021,
-    price: 1280000,
-    image: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3',
-    specs: {
-      fuel: 'Petrol',
-      transmission: 'CVT',
-      km: 20000,
-      owner: '1st'
-    }
-  },
-  {
-    id: 5,
-    name: 'Mahindra XUV700 AX7',
-    year: 2022,
-    price: 2150000,
-    image: 'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3',
-    specs: {
-      fuel: 'Diesel',
-      transmission: 'Automatic',
-      km: 15000,
-      owner: '1st'
-    }
-  },
-  {
-    id: 6,
-    name: 'Kia Seltos HTX',
-    year: 2021,
-    price: 1350000,
-    image: 'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3',
-    specs: {
-      fuel: 'Petrol',
-      transmission: 'DCT',
-      km: 22000,
-      owner: '1st'
-    }
-  },
-];
-
 const BuyPage = () => {
+  const cars = getAllCars().map(car => ({
+    id: car.id,
+    name: car.name,
+    year: car.year,
+    price: car.price,
+    image: car.images[0], // Use first image from array
+    specs: {
+      fuel: car.fuel,
+      transmission: car.transmission,
+      km: car.kilometers,
+      owner: car.owner
+    }
+  }));
+
   // Format price to Indian currency format
   const formatPrice = (price) => {
     return new Intl.NumberFormat('en-IN', {
@@ -98,12 +31,25 @@ const BuyPage = () => {
 
   return (
     <div>
-      {/* Replace Hero Section with PageHeader */}
       <PageHeader 
-        title="Find Your Perfect Car"
-        subtitle="Browse our selection of premium verified vehicles"
-        bgImage="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3"
+        title={
+          <div className="flex justify-center items-center">
+            <img 
+              src="/assets/mcarslogo.png" 
+              alt="Mavullamma Cars Logo" 
+              className="h-40 w-auto object-contain"
+            />
+          </div>
+        }
       />
+      {/* Intro Paragraph */}
+      <div className="section-padding bg-white text-center">
+        <div className="container-custom">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            At Mavullamma Cars, finding your perfect vehicle is a seamless experience. We offer a curated selection of premium pre-owned cars, each rigorously inspected to ensure quality and reliability. Our expert team is dedicated to helping you every step of the way, from browsing our inventory to driving home in your new car.
+          </p>
+        </div>
+      </div>
 
       {/* Car Listings */}
       <div className="section-padding bg-gray-50">
@@ -111,25 +57,27 @@ const BuyPage = () => {
           <h2 className="text-3xl font-bold mb-10 text-center">Available Cars</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {cars.map((car) => (
-              <div key={car.id} className="car-card overflow-hidden flex flex-col">
-                <div className="aspect-w-16 aspect-h-10 bg-gray-100">
+              <div key={car.id} className="car-card overflow-hidden flex flex-col bg-[#0a2472] rounded-lg shadow-md text-white">
+                <div className="relative h-[300px]"> {/* Reduced height for better fit */}
                   <img 
                     src={car.image} 
                     alt={car.name} 
-                    className="w-full h-48 object-cover"
+                    className="w-full h-full object-cover bg-white" // Changed to object-cover from object-contain
                   />
+                  <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                    {car.year}
+                  </div>
                 </div>
                 <div className="p-5 flex flex-col flex-grow">
                   <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold">{car.name}</h3>
-                    <span className="text-lg font-semibold text-mavBlue">{car.year}</span>
+                    <h3 className="text-xl font-bold text-white">{car.name}</h3>
                   </div>
                   <div className="mb-4">
-                    <span className="text-2xl font-bold text-mavBlue">
+                    <span className="text-2xl font-bold text-white">
                       {formatPrice(car.price)}
                     </span>
                   </div>
-                  <div className="grid grid-cols-2 gap-3 text-sm text-gray-600 mb-6">
+                  <div className="grid grid-cols-2 gap-3 text-sm text-white/90 mb-6">
                     <div className="flex items-center">
                       <span className="font-medium mr-1">Fuel:</span> {car.specs.fuel}
                     </div>
@@ -144,7 +92,7 @@ const BuyPage = () => {
                     </div>
                   </div>
                   <div className="mt-auto flex space-x-3">
-                    <Button asChild className="flex-grow bg-mavBlue hover:bg-blue-700">
+                    <Button asChild className="flex-grow bg-white text-mavBlue hover:bg-gray-100">
                       <Link to={`/buy/${car.id}`}>View Details</Link>
                     </Button>
                     <Button asChild className="bg-green-600 hover:bg-green-700">

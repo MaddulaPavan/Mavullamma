@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Check, Award, Heart, Shield, Coffee, Link as LinkIcon, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -52,13 +51,18 @@ const AboutPage = () => {
 
   return (
     <div className="bg-white">
-      {/* Replace Hero Section with PageHeader */}
       <PageHeader 
-        title="Our Journey of Excellence" 
-        subtitle="Trusted by over 3,00,000+ customers across Andhra Pradesh & Telangana"
-        bgImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3"
+        title={
+          <div className="flex justify-center items-center">
+            <img 
+              src="/assets/mcarslogo.png" 
+              alt="Mavullamma Cars Logo" 
+              className="h-40 w-auto object-contain"
+            />
+          </div>
+        }
       />
-
+      
       {/* Our Story */}
       <div className="section-padding">
         <div className="container-custom">
@@ -91,7 +95,7 @@ const AboutPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
               <div className="md:col-span-5">
                 <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3" 
+                  src= "public\assets\srinu.jpg"
                   alt="Mr. Maddula Srinivasa Rao" 
                   className="rounded-lg shadow-lg w-full h-auto object-cover"
                 />

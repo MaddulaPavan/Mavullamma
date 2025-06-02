@@ -1,8 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Check, Calendar, ArrowLeft, Info, Phone, Car, Fuel, Settings } from 'lucide-react';
+import { Check, Calendar, ArrowLeft, Info, Phone, Car, Fuel, Settings, Share2 } from 'lucide-react';
 import {
   Carousel,
   CarouselContent,
@@ -10,231 +9,63 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import ImageModal from '@/components/ui/image-modal';
+import { getCarById, CarDetails, carDatabase } from '@/data/carDatabase';
 
-// Sample car data (in a real app, this would come from an API)
-const carDatabase = {
-  '1': {
-    id: 1,
-    name: 'Hyundai Creta SX',
-    year: 2022,
-    price: 1580000,
-    kilometers: 18000,
-    fuel: 'Petrol',
-    transmission: 'Automatic',
-    owner: '1st',
-    engine: '1.5L',
-    mileage: '16.8 kmpl',
-    color: 'Phantom Black',
-    insurance: 'Valid until May 2025',
-    description: 'This Hyundai Creta SX is in excellent condition with low mileage. Features include a panoramic sunroof, wireless charging, ventilated seats, and Bose premium sound system. The car has been regularly serviced at authorized Hyundai service centers and comes with comprehensive insurance valid until May 2025.',
-    features: [
-      'Panoramic Sunroof',
-      'Wireless Phone Charging',
-      'Ventilated Seats',
-      'Bose Premium Sound System',
-      'LED Headlamps',
-      'Advanced Cruise Control',
-      'Automatic Climate Control',
-      '10.25-inch Touchscreen Infotainment System',
-      'Blue Link Connected Car Technology',
-      'Air Purifier'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3'
-    ]
-  },
-  '2': {
-    id: 2,
-    name: 'Maruti Suzuki Swift ZXI',
-    year: 2021,
-    price: 780000,
-    kilometers: 25000,
-    fuel: 'Petrol',
-    transmission: 'Manual',
-    owner: '1st',
-    engine: '1.2L',
-    mileage: '23.2 kmpl',
-    color: 'Pearl Arctic White',
-    insurance: 'Valid until December 2024',
-    description: 'This Maruti Suzuki Swift ZXI is a well-maintained vehicle with excellent fuel efficiency. It features a touchscreen infotainment system, automatic climate control, and keyless entry. The car has been regularly serviced at authorized Maruti Suzuki service centers.',
-    features: [
-      'Touchscreen Infotainment System',
-      'Apple CarPlay and Android Auto',
-      'Automatic Climate Control',
-      'Keyless Entry',
-      'Push-Button Start',
-      'LED Projector Headlamps',
-      'Day/Night IRVM',
-      'Electrically Adjustable ORVMs',
-      'Rear Parking Sensors',
-      'ABS with EBD'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1494905998402-395d579af36f?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-4.0.3'
-    ]
-  },
-  '3': {
-    id: 3,
-    name: 'Toyota Fortuner 4x4',
-    year: 2020,
-    price: 3250000,
-    kilometers: 35000,
-    fuel: 'Diesel',
-    transmission: 'Automatic',
-    owner: '1st',
-    engine: '2.8L',
-    mileage: '14.2 kmpl',
-    color: 'Phantom Brown',
-    insurance: 'Valid until October 2023',
-    description: 'This Toyota Fortuner 4x4 is a powerful SUV with excellent off-road capabilities. It features all-wheel drive, leather seating, and advanced safety features. The vehicle has been meticulously maintained and comes with a comprehensive service history.',
-    features: [
-      'All-Wheel Drive',
-      'Leather Seats',
-      'Power Tailgate',
-      'Bi-Beam LED Headlamps',
-      'Multi-Terrain Select Mode',
-      'Hill Assist Control',
-      'Paddle Shifters',
-      '8-inch Touchscreen Infotainment System',
-      'JBL Audio System with 11 Speakers',
-      '7 SRS Airbags'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1546614042-7df3c24c9e5d?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1550355291-bbee04a92027?ixlib=rb-4.0.3'
-    ]
-  },
-  '4': {
-    id: 4,
-    name: 'Honda City ZX',
-    year: 2021,
-    price: 1280000,
-    kilometers: 20000,
-    fuel: 'Petrol',
-    transmission: 'CVT',
-    owner: '1st',
-    engine: '1.5L',
-    mileage: '18.4 kmpl',
-    color: 'Platinum White Pearl',
-    insurance: 'Valid until June 2024',
-    description: 'This Honda City ZX is a premium sedan with elegant styling and comfortable interiors. It features a sunroof, leather seats, and advanced safety features. The car has been maintained in excellent condition and comes with a complete service history.',
-    features: [
-      'Electric Sunroof',
-      'Leather Seats',
-      'Paddle Shifters',
-      'LED Headlamps with DRLs',
-      'Touchscreen Infotainment System with Smartphone Connectivity',
-      'Rear View Camera',
-      'Automatic Climate Control',
-      'Cruise Control',
-      'Lane Watch Camera',
-      '6 Airbags'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1520608760-eff2c38b0515?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1558575474-c479c7639927?ixlib=rb-4.0.3'
-    ]
-  },
-  '5': {
-    id: 5,
-    name: 'Mahindra XUV700 AX7',
-    year: 2022,
-    price: 2150000,
-    kilometers: 15000,
-    fuel: 'Diesel',
-    transmission: 'Automatic',
-    owner: '1st',
-    engine: '2.2L',
-    mileage: '16.5 kmpl',
-    color: 'Midnight Black',
-    insurance: 'Valid until August 2025',
-    description: 'This Mahindra XUV700 AX7 is a feature-packed SUV with premium interiors and powerful performance. It comes with ADAS features, panoramic sunroof, and a sophisticated infotainment system. The vehicle has been serviced regularly at authorized service centers.',
-    features: [
-      'Panoramic Sunroof',
-      'ADAS Features (Adaptive Cruise Control, Lane Keep Assist)',
-      'Dual 10.25-inch Screens',
-      'Wireless Android Auto & Apple CarPlay',
-      'Alexa Built-in',
-      'AdrenoX Connected Car Technology',
-      '360-degree Camera',
-      'Harman Kardon Sound System',
-      'Ventilated Front Seats',
-      '7 Airbags'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1552519507-da3b142c6e3d?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-4.0.3'
-    ]
-  },
-  '6': {
-    id: 6,
-    name: 'Kia Seltos HTX',
-    year: 2021,
-    price: 1350000,
-    kilometers: 22000,
-    fuel: 'Petrol',
-    transmission: 'DCT',
-    owner: '1st',
-    engine: '1.4L Turbo',
-    mileage: '16.8 kmpl',
-    color: 'Gravity Grey',
-    insurance: 'Valid until March 2025',
-    description: 'This Kia Seltos HTX is a stylish and feature-rich compact SUV. It comes with UVO connected car features, Bose premium sound system, and advanced driver assistance. The vehicle has been maintained well and comes with complete service history.',
-    features: [
-      'UVO Connected Car Technology',
-      'Bose Premium Sound System',
-      '10.25-inch Touchscreen Infotainment',
-      'Ventilated Front Seats',
-      'Air Purifier',
-      'LED Sound Mood Lighting',
-      'Wireless Phone Charger',
-      'Traction Control Modes',
-      'Electric Sunroof',
-      '6 Airbags'
-    ],
-    images: [
-      'https://images.unsplash.com/photo-1583121274602-3e2820c69888?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?ixlib=rb-4.0.3',
-      'https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-4.0.3'
-    ]
-  }
-};
-
-const CarDetailPage = () => {
-  const { carId } = useParams();
-  const [car, setCar] = useState(null);
+const CarDetailPage: React.FC = () => {
+  const { carId } = useParams<{ carId: string }>();
+  const [car, setCar] = useState<CarDetails | null>(null);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [showShareTooltip, setShowShareTooltip] = useState(false);
   
   useEffect(() => {
-    // Simulate fetching data from API
-    setTimeout(() => {
-      if (carId && carDatabase[carId]) {
-        setCar(carDatabase[carId]);
+    const loadCar = async () => {
+      try {
+        if (!carId) {
+          setLoading(false);
+          return;
+        }
+        const carData = getCarById(carId);
+        setCar(carData);
+      } catch (error) {
+        console.error('Error loading car:', error);
+      } finally {
+        setLoading(false);
       }
-      setLoading(false);
-    }, 500);
+    };
+
+    loadCar();
   }, [carId]);
   
   // Format price to Indian currency format
-  const formatPrice = (price) => {
+  const formatPrice = (price: number): string => {
+    if (!price) return '₹0';
     return new Intl.NumberFormat('en-IN', {
       style: 'currency',
       currency: 'INR',
       maximumFractionDigits: 0
     }).format(price);
+  };
+  
+  const handleShare = async () => {
+    const shareUrl = `${window.location.origin}/buy/${car.id}`;
+    
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: car.name,
+          text: `Check out this ${car.year} ${car.name} at Mavullamma Car Dreams`,
+          url: shareUrl
+        });
+      } catch (error) {
+        console.log('Error sharing:', error);
+      }
+    } else {
+      navigator.clipboard.writeText(shareUrl);
+      setShowShareTooltip(true);
+      setTimeout(() => setShowShareTooltip(false), 2000);
+    }
   };
   
   if (loading) {
@@ -287,6 +118,26 @@ const CarDetailPage = () => {
           {/* Left Column: Images */}
           <div className="lg:col-span-2">
             <div className="bg-white rounded-lg shadow-md p-4 mb-8">
+              {/* Share button */}
+              <div className="flex justify-end mb-4">
+                <div className="relative">
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex items-center gap-2"
+                    onClick={handleShare}
+                  >
+                    <Share2 className="w-4 h-4" />
+                    Share
+                  </Button>
+                  {showShareTooltip && (
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 px-3 py-1 bg-gray-800 text-white text-sm rounded">
+                      Link copied!
+                    </div>
+                  )}
+                </div>
+              </div>
+
               <Carousel className="w-full">
                 <CarouselContent>
                   {car.images.map((image, index) => (
@@ -295,7 +146,12 @@ const CarDetailPage = () => {
                         <img 
                           src={image} 
                           alt={`${car.name} - Image ${index + 1}`} 
-                          className="w-full h-[400px] object-cover rounded-md"
+                          className="w-full h-[400px] object-cover rounded-md cursor-pointer"
+                          onClick={() => setSelectedImage(image)}
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = '/assets/placeholder.jpg'; // Add a placeholder image
+                          }}
                         />
                       </div>
                     </CarouselItem>
@@ -305,13 +161,14 @@ const CarDetailPage = () => {
                 <CarouselNext className="right-2" />
               </Carousel>
               
-              <div className="grid grid-cols-4 gap-2 mt-4">
+              <div className="grid grid-cols-6 gap-2 mt-4">
                 {car.images.map((image, index) => (
                   <img 
                     key={index}
                     src={image} 
                     alt={`Thumbnail ${index + 1}`}
                     className="h-20 w-full object-cover rounded-sm cursor-pointer border-2 border-transparent hover:border-mavBlue"
+                    onClick={() => setSelectedImage(image)}
                   />
                 ))}
               </div>
@@ -446,7 +303,8 @@ const CarDetailPage = () => {
           <h2 className="text-2xl font-semibold mb-8">You May Also Like</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Object.values(carDatabase)
-              .filter(otherCar => otherCar.id !== car.id)
+              .filter(otherCar => otherCar.id !== Number(carId))
+              .slice(0, 3) // Show only 3 similar cars
               .map(similarCar => (
                 <div key={similarCar.id} className="car-card overflow-hidden flex flex-col">
                   <div className="aspect-w-16 aspect-h-10 bg-gray-100">
@@ -484,6 +342,14 @@ const CarDetailPage = () => {
               ))}
           </div>
         </div>
+        
+        {/* Add Modal */}
+        {selectedImage && (
+          <ImageModal 
+            imageUrl={selectedImage} 
+            onClose={() => setSelectedImage(null)} 
+          />
+        )}
       </div>
     </div>
   );

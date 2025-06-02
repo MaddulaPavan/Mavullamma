@@ -73,20 +73,16 @@ const ContactPage = () => {
   return (
     <div>
       <PageHeader 
-        title="Contact Us" 
-        subtitle="We're here to answer your questions and provide assistance"
-        bgImage="https://images.unsplash.com/photo-1466721591366-2d5fba72006d?ixlib=rb-4.0.3"
+        title={
+          <div className="flex justify-center items-center">
+            <img 
+              src="/assets/mcarslogo.png" 
+              alt="Mavullamma Cars Logo" 
+              className="h-40 w-auto object-contain"
+            />
+          </div>
+        }
       />
-      
-      {/* Hero Section */}
-      <div className="bg-gray-800 text-white">
-        <div className="container-custom py-16 md:py-24 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">Get in Touch with Mavullamma Cars</h1>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-200">
-            We're here to help with all your car-related needs
-          </p>
-        </div>
-      </div>
 
       {/* Contact Information and Map */}
       <div className="section-padding bg-white">

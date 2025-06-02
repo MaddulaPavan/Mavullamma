@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Book } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
@@ -33,9 +32,15 @@ const TermsPage = () => {
   return (
     <div>
       <PageHeader 
-        title="Terms and Conditions" 
-        subtitle="Important information about your purchase and our services"
-        bgImage="https://images.unsplash.com/photo-1423592707957-3b212afa6733?ixlib=rb-4.0.3"
+        title={
+          <div className="flex justify-center items-center">
+            <img 
+              src="/assets/mcarslogo.png" 
+              alt="Mavullamma Cars Logo" 
+              className="h-40 w-auto object-contain"
+            />
+          </div>
+        }
       />
       
       <div className="section-padding">

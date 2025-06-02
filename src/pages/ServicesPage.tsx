@@ -10,6 +10,7 @@ const ServicesPage = () => {
     {
       id: 'paint-protection',
       title: 'Paint Protection',
+      icon: <Shield className="w-8 h-8" />,
       services: [
         {
           id: 'ceramic-coating',
@@ -19,8 +20,7 @@ const ServicesPage = () => {
             'Enhanced Gloss: Gives your car a stunning, high-gloss finish',
             'Self-Healing: Minor scratches disappear over time',
             'Water & Dust Repellent: Protects your car from water spots and dust accumulation'
-          ],
-          priceRange: 'Starting from ₹10,000'
+          ]
         },
         {
           id: 'ppf',
@@ -30,8 +30,7 @@ const ServicesPage = () => {
             'Durable Shield: Protects your car from scratches, chips, and road debris',
             'Enhanced Durability: Adds long-term protection to your car\'s paint job',
             'Increased Paint Life: Prevents fading and damage from sun and elements'
-          ],
-          priceRange: 'Starting from ₹25,000'
+          ]
         },
         {
           id: 'teflon-coating',
@@ -41,15 +40,14 @@ const ServicesPage = () => {
             'Shiny Gloss Finish: Enhances the look of your car with a smooth, glossy surface',
             'Scratch Removal: Helps remove minor scratches and imperfections',
             'Water & Dirt Repellent: Keeps your car cleaner for longer'
-          ],
-          priceRange: 'Starting from ₹5,000',
-          bonus: 'Includes complimentary Engine and Interior Deep Cleaning'
+          ]
         }
       ]
     },
     {
       id: 'protection-maintenance',
       title: 'Protection & Maintenance',
+      icon: <Activity className="w-8 h-8" />,
       services: [
         {
           id: 'underbody-rust',
@@ -59,9 +57,7 @@ const ServicesPage = () => {
             'Prevents Rust & Corrosion: Protects from salt, moisture, and grime',
             'Enhanced Durability: Ensures long-term health of your car\'s undercarriage',
             'Long-Term Protection: Safeguards critical areas of your car'
-          ],
-          priceRange: 'Starting from ₹6,000',
-          bonus: 'Includes complimentary One-Step Paint Restoration'
+          ]
         },
         {
           id: 'sunroof-maintenance',
@@ -71,14 +67,24 @@ const ServicesPage = () => {
             'Smooth Operation: Ensures your sunroof functions properly',
             'Leak Prevention: Seals and protects against water intrusion',
             'Extended Lifespan: Maintains the longevity of sunroof components'
-          ],
-          priceRange: 'Starting from ₹3,500'
+          ]
+        },
+        {
+          id: 'two-wheeler-maintenance',
+          title: 'Two-Wheeler Maintenance',
+          description: 'Comprehensive maintenance service for motorcycles and scooters. Our specialized team ensures your two-wheeler performs at its best with regular maintenance and protection.',
+          benefits: [
+            'Engine Care: Regular maintenance for optimal performance',
+            'Chain & Belt Service: Proper lubrication and tension adjustment',
+            'Brake System Maintenance: Ensuring safe and responsive braking'
+          ]
         }
       ]
     },
     {
       id: 'cleaning-detailing',
       title: 'Cleaning & Detailing',
+      icon: <Zap className="w-8 h-8" />,
       services: [
         {
           id: 'interior-cleaning',
@@ -88,8 +94,7 @@ const ServicesPage = () => {
             'Pristine Interiors: Removes dirt, stains, and odors from your car\'s cabin',
             'Enhanced Hygiene: Eliminates bacteria and allergens',
             'Revitalized Look: Restores your car\'s interior to like-new condition'
-          ],
-          priceRange: 'Starting from ₹3,000'
+          ]
         },
         {
           id: 'engine-cleaning',
@@ -99,8 +104,7 @@ const ServicesPage = () => {
             'Improved Performance: Removes build-up that affects engine efficiency',
             'Better Heat Dissipation: Prevents overheating issues',
             'Easier Maintenance: Makes future servicing simpler and problems easier to spot'
-          ],
-          priceRange: 'Starting from ₹2,500'
+          ]
         },
         {
           id: 'waxing',
@@ -110,8 +114,7 @@ const ServicesPage = () => {
             'Enhanced Shine: Provides a deep, glossy finish',
             'Paint Protection: Shields your car\'s exterior from pollutants and UV damage',
             'Water Beading Effect: Helps repel water, keeping the surface clean for longer'
-          ],
-          priceRange: 'Starting from ₹2,000'
+          ]
         }
       ]
     }
@@ -140,42 +143,49 @@ const ServicesPage = () => {
   ];
 
   return (
-    <div>
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       <PageHeader 
-        title="Our Premium Services" 
-        subtitle="Professional automotive services tailored to your needs"
-        bgImage="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3"
+        title={
+          <div className="flex justify-center items-center">
+            <img 
+              src="/assets/mcarslogo.png" 
+              alt="Mavullamma Cars Logo" 
+              className="h-40 w-auto object-contain"
+            />
+          </div>
+        }
       />
       
       {/* Services Overview */}
       <div className="section-padding">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold mb-6">Our Comprehensive Services</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="text-4xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-mavBlue to-blue-600">Our Comprehensive Services</h2>
+            <p className="text-lg text-gray-600 leading-relaxed">
               At Mavullamma Cars, we offer a wide range of premium services designed to enhance and maintain your vehicle's performance, appearance, and value. From protective coatings to deep cleaning, our expert team uses only the highest quality products and latest techniques.
             </p>
           </div>
 
           {/* Service Categories */}
-          <div className="space-y-16">
+          <div className="space-y-20">
             {serviceCategories.map((category) => (
-              <div key={category.id} id={category.id} className="scroll-mt-20">
-                <h2 className="text-2xl md:text-3xl font-bold mb-8 pb-3 border-b border-gray-200">
-                  {category.title}
-                </h2>
+              <div key={category.id} id={category.id} className="scroll-mt-20 bg-gray-50 p-8 rounded-2xl shadow-sm border border-gray-200">
+                <div className="flex items-center justify-center gap-4 mb-12 pb-4 border-b border-gray-200">
+                  <div className="text-mavBlue">{category.icon}</div>
+                  <h2 className="text-3xl font-bold text-center">{category.title}</h2>
+                </div>
                 
-                <div className="space-y-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {category.services.map((service) => (
-                    <div key={service.id} className="bg-white p-6 md:p-8 rounded-lg shadow-md border border-gray-100">
-                      <h3 className="text-xl md:text-2xl font-bold mb-4 text-mavBlue">{service.title}</h3>
-                      <p className="text-gray-700 mb-6">{service.description}</p>
+                    <div key={service.id} className="group bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-mavBlue/20 h-full flex flex-col">
+                      <h3 className="text-xl font-bold mb-4 text-mavBlue group-hover:text-blue-600 transition-colors">{service.title}</h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed flex-grow">{service.description}</p>
                       
                       <div className="mb-6">
-                        <h4 className="text-lg font-semibold mb-3">Benefits:</h4>
-                        <ul className="space-y-2">
+                        <h4 className="text-lg font-semibold mb-3 text-gray-800">Benefits:</h4>
+                        <ul className="space-y-3">
                           {service.benefits.map((benefit, index) => (
-                            <li key={index} className="flex">
+                            <li key={index} className="flex items-start">
                               <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
                               <span className="text-gray-600">{benefit}</span>
                             </li>
@@ -183,19 +193,9 @@ const ServicesPage = () => {
                         </ul>
                       </div>
                       
-                      <div className="flex flex-wrap justify-between items-end">
-                        <div>
-                          <p className="text-lg font-semibold text-mavBlue">{service.priceRange}</p>
-                          {service.bonus && (
-                            <p className="text-sm text-green-600 mt-1">
-                              <strong>Bonus:</strong> {service.bonus}
-                            </p>
-                          )}
-                        </div>
-                        <Button asChild className="mt-4 md:mt-0">
-                          <Link to="/contact">Enquire Now</Link>
-                        </Button>
-                      </div>
+                      <Button asChild className="w-full bg-mavBlue hover:bg-blue-600 transition-colors mt-auto">
+                        <Link to="/contact">Enquire Now</Link>
+                      </Button>
                     </div>
                   ))}
                 </div>
@@ -205,118 +205,73 @@ const ServicesPage = () => {
         </div>
       </div>
 
-      {/* Service Packages */}
-      <div className="section-padding bg-gray-50">
+      {/* Why Choose Our Services */}
+      <div className="pt-0 pb-8 bg-gradient-to-b from-white to-gray-50">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-12 text-center">Value Packages</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {servicePackages.map((pkg, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100">
-                <div className="bg-mavBlue text-white p-4 text-center">
-                  <h3 className="text-xl font-bold">{pkg.title}</h3>
-                </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-6">{pkg.description}</p>
-                  <div className="flex justify-between items-center mb-6">
-                    <span className="text-2xl font-bold text-mavBlue">{pkg.price}</span>
-                    <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                      Save {pkg.savePercentage}
-                    </span>
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-4xl font-bold mb-4 text-center bg-clip-text text-transparent bg-gradient-to-r from-mavBlue to-blue-600">Why Choose Our Services</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {[
+                {
+                  title: "Premium Care",
+                  description: "Expert care for premium and luxury vehicles",
+                  icon: <Car className="w-6 h-6" />
+                },
+                {
+                  title: "Expert Team",
+                  description: "Highly skilled and experienced technicians",
+                  icon: <Layers className="w-6 h-6" />
+                },
+                {
+                  title: "Quality Products",
+                  description: "Using only the highest quality materials and products",
+                  icon: <Shield className="w-6 h-6" />
+                },
+                {
+                  title: "Attention to Detail",
+                  description: "Meticulous care in every aspect of our service",
+                  icon: <Activity className="w-6 h-6" />
+                }
+              ].map((point, index) => (
+                <div key={index} className="bg-gray-50 p-8 rounded-xl shadow-md border border-gray-200 hover:border-mavBlue/20 transition-all duration-300 hover:shadow-lg">
+                  <div className="flex flex-col items-center text-center gap-4 mb-4">
+                    <div className="text-mavBlue bg-mavBlue/10 p-4 rounded-full">{point.icon}</div>
+                    <h3 className="text-xl font-bold text-mavBlue">{point.title}</h3>
                   </div>
-                  <Button asChild className="w-full bg-green-600 hover:bg-green-700">
-                    <Link to="/contact">Book Now</Link>
-                  </Button>
+                  <p className="text-gray-600 text-center">{point.description}</p>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Why Choose Our Services - Updated with framed points */}
-      <div className="section-padding">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto">
-            <h2 className="text-3xl font-bold mb-10 text-center">Why Choose Our Services</h2>
-            <div className="bg-white p-8 rounded-lg shadow-md border border-gray-100">
-              <ul className="space-y-4">
-                {[
-                  "Premium Care for Premium Cars",
-                  "Experienced Technicians",
-                  "High-Quality Products",
-                  "Attention to Detail",
-                  "Customer Satisfaction Guaranteed"
-                ].map((point, index) => (
-                  <li key={index} className="flex items-start p-3 border border-gray-200 rounded-md">
-                    <Check className="w-5 h-5 text-green-500 mr-3 shrink-0 mt-0.5" />
-                    <span className="text-gray-700">{point}</span>
-                  </li>
-                ))}
-              </ul>
+              ))}
             </div>
           </div>
         </div>
       </div>
 
       {/* CTA Section */}
-      <div className="section-padding bg-mavBlue text-white">
+      <div className="section-padding bg-gradient-to-r from-mavBlue to-blue-600 text-white mt-8">
         <div className="container-custom">
-          <h2 className="text-3xl font-bold mb-6 text-center">Book Your Service Today</h2>
-          <p className="text-center max-w-2xl mx-auto mb-10">
-            Give your car the care it deserves. Call us or fill out the form below to schedule a service.
-          </p>
-          
-          <div className="max-w-lg mx-auto bg-white p-8 rounded-lg shadow-lg">
-            <form className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Service Type</label>
-                <select className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue text-gray-900">
-                  <option value="">Select a Service</option>
-                  <option value="ceramic-coating">Ceramic Coating</option>
-                  <option value="ppf">Paint Protection Film</option>
-                  <option value="teflon-coating">Teflon Coating</option>
-                  <option value="underbody-rust">Underbody Rust Coating</option>
-                  <option value="sunroof-maintenance">Sunroof Maintenance</option>
-                  <option value="interior-cleaning">Deep Interior Cleaning</option>
-                  <option value="engine-cleaning">Engine Cleaning</option>
-                  <option value="waxing">Waxing</option>
-                  <option value="premium-package">Premium Protection Package</option>
-                  <option value="essential-package">Essential Care Package</option>
-                  <option value="maintenance-package">Complete Maintenance Package</option>
-                </select>
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6">Book Your Service Today</h2>
+            <p className="text-lg mb-10 text-blue-50">
+              Give your car the care it deserves. Contact us to schedule a service.
+            </p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                <h3 className="text-2xl font-bold mb-4">Contact Us</h3>
+                <p className="mb-6">Call us directly to discuss your requirements</p>
+                <Button variant="outline" className="w-full bg-white text-mavBlue hover:bg-blue-50">
+                  <Link to="/contact">Get in Touch</Link>
+                </Button>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                <input 
-                  type="text" 
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue text-gray-900" 
-                  required
-                />
+              
+              <div className="bg-white/10 backdrop-blur-sm p-8 rounded-xl">
+                <h3 className="text-2xl font-bold mb-4">Visit Us</h3>
+                <p className="mb-6">Schedule a visit to our state-of-the-art facility</p>
+                <Button variant="outline" className="w-full bg-white text-mavBlue hover:bg-blue-50">
+                  <Link to="/contact">Book Appointment</Link>
+                </Button>
               </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-                <input 
-                  type="tel" 
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue text-gray-900" 
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Preferred Date & Time</label>
-                <input 
-                  type="datetime-local" 
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue text-gray-900" 
-                />
-              </div>
-              <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
-                <textarea 
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-mavBlue focus:border-mavBlue text-gray-900" 
-                  rows={3}
-                ></textarea>
-              </div>
-              <Button className="w-full">Book Appointment</Button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
